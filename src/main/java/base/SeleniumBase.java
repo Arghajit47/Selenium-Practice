@@ -73,4 +73,17 @@ public class SeleniumBase {
     public void selectIndex(WebElement element, int index) {
         new Select(element).selectByIndex(index);
     }
+
+    public void acceptAlert() {
+        log("Alert Text is: " + driver.switchTo().alert().getText());
+        driver.switchTo().alert().accept();
+    }
+    public void dismissAlert() {
+        log("Alert Text is: " + driver.switchTo().alert().getText());
+        driver.switchTo().alert().dismiss();
+    }
+    public void typeInAlert(String text) {
+        log("Alert Text is: " + driver.switchTo().alert().getText());
+        driver.switchTo().alert().sendKeys(text);
+    }
 }
