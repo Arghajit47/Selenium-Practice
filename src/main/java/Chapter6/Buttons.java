@@ -4,15 +4,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Buttons {
     public static void main(String[] args) {
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://letcode.in/buttons");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 
         //TC001
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("home")));
         driver.findElement(By.id("home")).click();
         System.out.println(driver.getCurrentUrl());
         driver.navigate().back();
